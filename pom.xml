@@ -66,17 +66,12 @@
                         </goals>
                         <configuration>
                             <verifyTimeout>60</verifyTimeout>
-                            <configFile>${basedir}/src/main/wlp/server.xml</configFile>
-                            <bootstrapProperties>
-                                <httpPort>8080</httpPort>
-                                <jvmOptions>-Dos.name=windows8.1</jvmOptions>
-                                <appLocation>${basedir}/target/${project.build.finalName}</appLocation>
-                            </bootstrapProperties>
+                            <configFile>${basedir}/src/main/wlp/server.xml</configFile>                            
                         </configuration>
                     </execution>
                 </executions>
                 <configuration>
-                    <serverHome>${basedir}/localdev/wlp</serverHome>
+                    <serverHome>C:/Workspace/wlp</serverHome>
                     <background>true</background>
                     <serverName>test</serverName>
                 </configuration>

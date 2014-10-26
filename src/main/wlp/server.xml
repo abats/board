@@ -1,17 +1,18 @@
 <server description="retrobats server">
 
+    <!-- Enable features -->
     <featureManager>
         <feature>servlet-3.0</feature>
-        <feature>jaxrs-1.1</feature>
-        <feature>jsp-2.2</feature>
     </featureManager>
 
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint id="defaultHttpEndpoint"
-                  host="localhost"
-                  httpPort="9080" >
-        <tcpOptions soReuseAddr="true"/>
-    </httpEndpoint>
+                  httpPort="9080"
+                  httpsPort="9443" />
 
+    <classloading useJarUrls="true"/>
 
+    <application context-root="retrobats" type="war" id="retrobats"
+    location="C:/Workspace/test/target/retrobats.war" name="retrobats"/>
 
 </server>
