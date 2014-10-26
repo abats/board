@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/retrodb" auth="Container" type="javax.sql.DataSource"
+              username="root"
+              password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/retrodb?useUnicode=true&amp;characterEncoding=utf8"
+              maxActive="15"
+              maxIdle="7"
+              defaultTransactionIsolation="READ_COMMITTED"
+              validationQuery="Select 1" >
+    </Resource>
+</Context>
