@@ -1,12 +1,21 @@
 package com.bats.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import com.bats.entities.Messages;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.List;
 
 @Path("/hello")
 public class HelloWorldService {
+
+    private static final String PERSISTENCE_UNIT_NAME = "messages";
+    private static EntityManagerFactory factory;
 
     @GET
     @Path("/{param}")
@@ -21,10 +30,29 @@ public class HelloWorldService {
     @GET
     @Path("/arno")
     public Response arnoResponse() {
-        String output = "Hai";
+        String output = "Hoi Rekha!!";
 
         return Response.status(200).entity(output).build();
     }
 
+    @GET
+    @Path("/jsontest")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Messages> jsonTest() {
+
+        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        EntityManager em = factory.createEntityManager();
+
+        // read the existing entries and write to console
+        Query query = em.createQuery("select m from Messages m");
+
+        List<Messages> messageList = query.getResultList();
+
+        System.out.println("Hoi");
+        System.out.println( messageList.get(0));
+
+        return messageList;
+    }
 
 }
