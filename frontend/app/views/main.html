@@ -1,0 +1,19 @@
+<div class="row marketing">
+    <p ng-repeat="message in messages"><span class="glyphicon glyphicon-user"></span>
+        <strong>{{ message.author }}</strong>
+        {{ message.message }}
+    </p>
+</div>
+
+<div class="row" id="board">
+
+    <div ng-init="makeDraggable()" ng-repeat="note in notes" class="quote-container sticky-note">
+        <i class="pin"></i>
+        <div class="note yellow {{ note.type }}">
+            {{ note.message }}
+            <cite class="author">{{ note.author }}</cite>
+        </div>
+    </div>
+
+</div>
+
