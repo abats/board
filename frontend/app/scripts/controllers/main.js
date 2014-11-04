@@ -1,3 +1,4 @@
+/*global $:false */
 'use strict';
 
 /**
@@ -13,7 +14,7 @@ angular.module('retrobatsApp')
         $scope.makeDraggable = function(){
             //TODO: how to do this for only the element loaded.
             $( document ).ready(function() {
-                $(".sticky-note").draggable({stack: "div"});
+                $('.sticky-note').draggable({stack: 'div'});
             });
         };
 
